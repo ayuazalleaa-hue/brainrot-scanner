@@ -7,61 +7,61 @@
    ======================== */
 const SPECIES = [
   // COMMON
-  { name: "Noobini Pizzanini",         emoji: "🍕", desc: "The Beginner Pizza Entity",        rarity: "common" },
-  { name: "Lirili Larila",             emoji: "🎵", desc: "The Singing Forest Creature",       rarity: "common" },
-  { name: "Tim Cheese",                emoji: "🧀", desc: "The Cheesy Team Leader",            rarity: "common" },
-  { name: "Svinina Bombardino",        emoji: "🐷", desc: "The Pork Bomb Dropper",             rarity: "common" },
-  { name: "Pipi Kiwi",                 emoji: "🥝", desc: "The Kiwi Faced Wanderer",           rarity: "common" },
-  { name: "Trippi Troppi",             emoji: "🌴", desc: "The Tropical Tripper",              rarity: "common" },
+  { name: "Noobini Pizzanini",         img: "", rarity: "common" },
+  { name: "Lirili Larila",             img: "", rarity: "common" },
+  { name: "Tim Cheese",                img: "", rarity: "common" },
+  { name: "Svinina Bombardino",        img: "", rarity: "common" },
+  { name: "Pipi Kiwi",                 img: "", rarity: "common" },
+  { name: "Trippi Troppi",             img: "", rarity: "common" },
   // RARE
-  { name: "Gangster Footera",          emoji: "👟", desc: "The Street Shoe Gangster",          rarity: "rare" },
-  { name: "Boneca Ambalabu",           emoji: "🪆", desc: "The Ancient Doll Entity",           rarity: "rare" },
-  { name: "Ta Ta Ta Ta Sahur",         emoji: "🥁", desc: "The Midnight Drum Awakener",        rarity: "rare" },
-  { name: "Ballerina Cappuccina",      emoji: "🩰", desc: "The Coffee-Fueled Dancer",          rarity: "rare" },
-  { name: "Cappuccino Assassino",      emoji: "☕", desc: "The Espresso Blade Master",         rarity: "rare" },
-  { name: "Brr Brr Patapim",           emoji: "❄️", desc: "The Freezing Sound Bringer",        rarity: "rare" },
+  { name: "Gangster Footera",          img: "", rarity: "rare" },
+  { name: "Boneca Ambalabu",           img: "", rarity: "rare" },
+  { name: "Ta Ta Ta Ta Sahur",         img: "", rarity: "rare" },
+  { name: "Ballerina Cappuccina",      img: "", rarity: "rare" },
+  { name: "Cappuccino Assassino",      img: "", rarity: "rare" },
+  { name: "Brr Brr Patapim",           img: "", rarity: "rare" },
   // EPIC
-  { name: "Garamaramam",               emoji: "🌀", desc: "The Spiral Chaos Entity",           rarity: "epic" },
-  { name: "Waterdino",                 emoji: "🦕", desc: "The Aquatic Dinosaur Overlord",     rarity: "epic" },
-  { name: "Orcalero",                  emoji: "🐋", desc: "The Orca Wave Destroyer",           rarity: "epic" },
-  { name: "Gattatino Nyanino",         emoji: "🐱", desc: "The Singing Cat Supreme",           rarity: "epic" },
+  { name: "Garamaramam",               img: "", rarity: "epic" },
+  { name: "Waterdino",                 img: "", rarity: "epic" },
+  { name: "Orcalero",                  img: "", rarity: "epic" },
+  { name: "Gattatino Nyanino",         img: "", rarity: "epic" },
   // LEGENDARY
-  { name: "Chimpanzini Bananini",      emoji: "🦧", desc: "The Banana Chimp Titan",            rarity: "legendary" },
-  { name: "Bambini Crostini",          emoji: "🥖", desc: "The Tiny Bread Warrior",            rarity: "legendary" },
-  { name: "Trulimero Trulicina",       emoji: "🎪", desc: "The Circus of Infinite Power",      rarity: "legendary" },
-  { name: "Bananita Dolphinita",       emoji: "🐬", desc: "The Banana Dolphin Legend",         rarity: "legendary" },
+  { name: "Chimpanzini Bananini",      img: "", rarity: "legendary" },
+  { name: "Bambini Crostini",          img: "", rarity: "legendary" },
+  { name: "Trulimero Trulicina",       img: "", rarity: "legendary" },
+  { name: "Bananita Dolphinita",       img: "", rarity: "legendary" },
   // MYTHIC
-  { name: "67",                        emoji: "6️⃣7️⃣", desc: "The Forbidden Number Entity",      rarity: "mythic" },
-  { name: "Chef Crabracadabra",        emoji: "🦀", desc: "The Magical Crab Sorcerer",         rarity: "mythic" },
-  { name: "Elefanto Frigo",            emoji: "🐘", desc: "The Refrigerator Elephant God",     rarity: "mythic" },
-  { name: "Rinoccio Verdini",          emoji: "🦏", desc: "The Green Rhino of Doom",           rarity: "mythic" },
-  { name: "Glorbo Fruttodrilo",        emoji: "🐊", desc: "The Fruit Crocodile Deity",         rarity: "mythic" },
+  { name: "67",                        img: "", rarity: "mythic" },
+  { name: "Chef Crabracadabra",        img: "", rarity: "mythic" },
+  { name: "Elefanto Frigo",            img: "", rarity: "mythic" },
+  { name: "Rinoccio Verdini",          img: "", rarity: "mythic" },
+  { name: "Glorbo Fruttodrilo",        img: "", rarity: "mythic" },
   // OG
-  { name: "Karkerkar Kurkur",          emoji: "🔮", desc: "The Ancient Sound Manipulator",     rarity: "og" },
-  { name: "Blackhole Goat",            emoji: "🐐", desc: "The Goat That Devours Stars",       rarity: "og" },
-  { name: "Compactoroni Daskaloni",    emoji: "🗜️", desc: "The Compression Master",            rarity: "og" },
-  { name: "Cappuccino Clownino",       emoji: "🤡", desc: "The Espresso Jester Supreme",       rarity: "og" },
-  { name: "Chillin Chilli",            emoji: "🌶️", desc: "The Relaxed Fire Bringer",          rarity: "og" },
-  { name: "Corn Sahur",                emoji: "🌽", desc: "The Pre-Dawn Corn Awakener",        rarity: "og" },
-  { name: "Meowl",                     emoji: "🦉", desc: "The Cat-Owl Hybrid Phantom",        rarity: "og" },
-  { name: "Strawberry Elephant",       emoji: "🍓", desc: "The Berry-Tusked Colossus",         rarity: "og" },
+  { name: "Karkerkar Kurkur",          img: "", rarity: "og" },
+  { name: "Blackhole Goat",            img: "", rarity: "og" },
+  { name: "Compactoroni Daskaloni",    img: "", rarity: "og" },
+  { name: "Cappuccino Clownino",       img: "", rarity: "og" },
+  { name: "Chillin Chilli",            img: "", rarity: "og" },
+  { name: "Corn Sahur",                img: "", rarity: "og" },
+  { name: "Meowl",                     img: "", rarity: "og" },
+  { name: "Strawberry Elephant",       img: "", rarity: "og" },
   // CELESTIAL
-  { name: "Dragonfrutina Dolphinita",  emoji: "🐉", desc: "The Dragon Fruit Dolphin God",      rarity: "celestial" },
-  { name: "Guerriro Digitale",         emoji: "💻", desc: "The Digital Warrior of Light",      rarity: "celestial" },
-  { name: "Chicleteira Bicicleteira",  emoji: "🚲", desc: "The Gum-Powered Cyclist",           rarity: "celestial" },
-  { name: "Pot Hotspot",               emoji: "📡", desc: "The Boiling WiFi Transmitter",      rarity: "celestial" },
-  { name: "Krupuk Pagi Pagi",          emoji: "🌅", desc: "The Dawn Cracker Celestial",        rarity: "celestial" },
-  { name: "Beluga Beluga",             emoji: "🐳", desc: "The Twin Whale of the Cosmos",      rarity: "celestial" },
-  { name: "Tralaledon",                emoji: "🌌", desc: "The Galaxy Song Titan",             rarity: "celestial" },
-  { name: "Anpali Babel",              emoji: "🗼", desc: "The Tower of Infinite Chaos",       rarity: "celestial" },
-  { name: "Los Primos",                emoji: "👥", desc: "The Cousin Duo of the Stars",       rarity: "celestial" },
+  { name: "Dragonfrutina Dolphinita",  img: "", rarity: "celestial" },
+  { name: "Guerriro Digitale",         img: "", rarity: "celestial" },
+  { name: "Chicleteira Bicicleteira",  img: "", rarity: "celestial" },
+  { name: "Pot Hotspot",               img: "", rarity: "celestial" },
+  { name: "Krupuk Pagi Pagi",          img: "", rarity: "celestial" },
+  { name: "Beluga Beluga",             img: "", rarity: "celestial" },
+  { name: "Tralaledon",                img: "", rarity: "celestial" },
+  { name: "Anpali Babel",              img: "", rarity: "celestial" },
+  { name: "Los Primos",                img: "", rarity: "celestial" },
   // ETERNAL
-  { name: "Espresso Shockantoni",      emoji: "⚡", desc: "The Lightning Espresso God",        rarity: "eternal" },
-  { name: "Ketupat Kepat",             emoji: "∞", desc: "The Infinite Rice Cake Being",       rarity: "eternal" },
-  { name: "Professora 67",             emoji: "👁️", desc: "The Forbidden Knowledge Keeper",    rarity: "eternal" },
-  { name: "Astro Tim",                 emoji: "🚀", desc: "The Cosmic Cheese Explorer",        rarity: "eternal" },
-  { name: "Dumbelloni",                emoji: "💪", desc: "The Eternal Iron Lifter",           rarity: "eternal" },
-  { name: "Baba Yaga",                 emoji: "🧙", desc: "The Primordial Witch of All",       rarity: "eternal" },
+  { name: "Espresso Shockantoni",      img: "", rarity: "eternal" },
+  { name: "Ketupat Kepat",             img: "", rarity: "eternal" },
+  { name: "Professora 67",             img: "", rarity: "eternal" },
+  { name: "Astro Tim",                 img: "", rarity: "eternal" },
+  { name: "Dumbelloni",                img: "", rarity: "eternal" },
+  { name: "Baba Yaga",                 img: "", rarity: "eternal" },
 ];
 
 /* ========================
@@ -436,7 +436,12 @@ function showResult(name) {
   document.getElementById('rarityIcon').textContent  = rarity.icon;
   document.getElementById('rarityIcon2').textContent = rarity.icon;
 
-  document.getElementById('speciesEmoji').textContent = species.emoji;
+  const imgWrap = document.getElementById('speciesEmoji');
+  if (species.img) {
+    imgWrap.innerHTML = `<img src="${species.img}" alt="${species.name}" style="width:120px;height:120px;object-fit:contain;border-radius:12px;">`;
+  } else {
+    imgWrap.innerHTML = `<span style="font-size:80px;">🧠</span>`;
+  }
   document.getElementById('resultName').textContent   = name;
   document.getElementById('resultSpecies').textContent = species.name;
   document.getElementById('resultTitle').textContent  = title;
