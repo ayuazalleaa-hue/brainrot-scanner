@@ -7,61 +7,61 @@
    ======================== */
 const SPECIES = [
   // COMMON
-  { name: "Noobini Pizzanini",         img: "", rarity: "common" },
-  { name: "Lirili Larila",             img: "", rarity: "common" },
-  { name: "Tim Cheese",                img: "", rarity: "common" },
-  { name: "Svinina Bombardino",        img: "", rarity: "common" },
-  { name: "Pipi Kiwi",                 img: "", rarity: "common" },
-  { name: "Trippi Troppi",             img: "", rarity: "common" },
+  { name: "Noobini Pizzanini",         img: "https://ibb.co.com/m5RXbmX6", sound: "https://static.wikia.nocookie.net/stealabr/images/a/a7/Noobini_Pizzanini_Sound.wav/revision/latest?cb=20251004162942", rarity: "common" },
+  { name: "Lirili Larila",             img: "", sound: "", rarity: "common" },
+  { name: "Tim Cheese",                img: "", sound: "", rarity: "common" },
+  { name: "Svinina Bombardino",        img: "", sound: "", rarity: "common" },
+  { name: "Pipi Kiwi",                 img: "", sound: "", rarity: "common" },
+  { name: "Trippi Troppi",             img: "", sound: "", rarity: "common" },
   // RARE
-  { name: "Gangster Footera",          img: "", rarity: "rare" },
-  { name: "Boneca Ambalabu",           img: "", rarity: "rare" },
-  { name: "Ta Ta Ta Ta Sahur",         img: "", rarity: "rare" },
-  { name: "Ballerina Cappuccina",      img: "", rarity: "rare" },
-  { name: "Cappuccino Assassino",      img: "", rarity: "rare" },
-  { name: "Brr Brr Patapim",           img: "", rarity: "rare" },
+  { name: "Gangster Footera",          img: "", sound: "", rarity: "rare" },
+  { name: "Boneca Ambalabu",           img: "", sound: "", rarity: "rare" },
+  { name: "Ta Ta Ta Ta Sahur",         img: "", sound: "", rarity: "rare" },
+  { name: "Ballerina Cappuccina",      img: "", sound: "", rarity: "rare" },
+  { name: "Cappuccino Assassino",      img: "", sound: "", rarity: "rare" },
+  { name: "Brr Brr Patapim",           img: "", sound: "", rarity: "rare" },
   // EPIC
-  { name: "Garamaramam",               img: "", rarity: "epic" },
-  { name: "Waterdino",                 img: "", rarity: "epic" },
-  { name: "Orcalero",                  img: "", rarity: "epic" },
-  { name: "Gattatino Nyanino",         img: "", rarity: "epic" },
+  { name: "Garamaramam",               img: "", sound: "", rarity: "epic" },
+  { name: "Waterdino",                 img: "", sound: "", rarity: "epic" },
+  { name: "Orcalero",                  img: "", sound: "", rarity: "epic" },
+  { name: "Gattatino Nyanino",         img: "", sound: "", rarity: "epic" },
   // LEGENDARY
-  { name: "Chimpanzini Bananini",      img: "", rarity: "legendary" },
-  { name: "Bambini Crostini",          img: "", rarity: "legendary" },
-  { name: "Trulimero Trulicina",       img: "", rarity: "legendary" },
-  { name: "Bananita Dolphinita",       img: "", rarity: "legendary" },
+  { name: "Chimpanzini Bananini",      img: "", sound: "", rarity: "legendary" },
+  { name: "Bambini Crostini",          img: "", sound: "", rarity: "legendary" },
+  { name: "Trulimero Trulicina",       img: "", sound: "", rarity: "legendary" },
+  { name: "Bananita Dolphinita",       img: "", sound: "", rarity: "legendary" },
   // MYTHIC
-  { name: "67",                        img: "", rarity: "mythic" },
-  { name: "Chef Crabracadabra",        img: "", rarity: "mythic" },
-  { name: "Elefanto Frigo",            img: "", rarity: "mythic" },
-  { name: "Rinoccio Verdini",          img: "", rarity: "mythic" },
-  { name: "Glorbo Fruttodrilo",        img: "", rarity: "mythic" },
+  { name: "67",                        img: "", sound: "", rarity: "mythic" },
+  { name: "Chef Crabracadabra",        img: "", sound: "", rarity: "mythic" },
+  { name: "Elefanto Frigo",            img: "", sound: "", rarity: "mythic" },
+  { name: "Rinoccio Verdini",          img: "", sound: "", rarity: "mythic" },
+  { name: "Glorbo Fruttodrilo",        img: "", sound: "", rarity: "mythic" },
   // OG
-  { name: "Karkerkar Kurkur",          img: "", rarity: "og" },
-  { name: "Blackhole Goat",            img: "", rarity: "og" },
-  { name: "Compactoroni Daskaloni",    img: "", rarity: "og" },
-  { name: "Cappuccino Clownino",       img: "", rarity: "og" },
-  { name: "Chillin Chilli",            img: "", rarity: "og" },
-  { name: "Corn Sahur",                img: "", rarity: "og" },
-  { name: "Meowl",                     img: "", rarity: "og" },
-  { name: "Strawberry Elephant",       img: "", rarity: "og" },
+  { name: "Karkerkar Kurkur",          img: "", sound: "", rarity: "og" },
+  { name: "Blackhole Goat",            img: "", sound: "", rarity: "og" },
+  { name: "Compactoroni Daskaloni",    img: "", sound: "", rarity: "og" },
+  { name: "Cappuccino Clownino",       img: "", sound: "", rarity: "og" },
+  { name: "Chillin Chilli",            img: "", sound: "", rarity: "og" },
+  { name: "Corn Sahur",                img: "", sound: "", rarity: "og" },
+  { name: "Meowl",                     img: "", sound: "", rarity: "og" },
+  { name: "Strawberry Elephant",       img: "", sound: "", rarity: "og" },
   // CELESTIAL
-  { name: "Dragonfrutina Dolphinita",  img: "", rarity: "celestial" },
-  { name: "Guerriro Digitale",         img: "", rarity: "celestial" },
-  { name: "Chicleteira Bicicleteira",  img: "", rarity: "celestial" },
-  { name: "Pot Hotspot",               img: "", rarity: "celestial" },
-  { name: "Krupuk Pagi Pagi",          img: "", rarity: "celestial" },
-  { name: "Beluga Beluga",             img: "", rarity: "celestial" },
-  { name: "Tralaledon",                img: "", rarity: "celestial" },
-  { name: "Anpali Babel",              img: "", rarity: "celestial" },
-  { name: "Los Primos",                img: "", rarity: "celestial" },
+  { name: "Dragonfrutina Dolphinita",  img: "", sound: "", rarity: "celestial" },
+  { name: "Guerriro Digitale",         img: "", sound: "", rarity: "celestial" },
+  { name: "Chicleteira Bicicleteira",  img: "", sound: "", rarity: "celestial" },
+  { name: "Pot Hotspot",               img: "", sound: "", rarity: "celestial" },
+  { name: "Krupuk Pagi Pagi",          img: "", sound: "", rarity: "celestial" },
+  { name: "Beluga Beluga",             img: "", sound: "", rarity: "celestial" },
+  { name: "Tralaledon",                img: "", sound: "", rarity: "celestial" },
+  { name: "Anpali Babel",              img: "", sound: "", rarity: "celestial" },
+  { name: "Los Primos",                img: "", sound: "", rarity: "celestial" },
   // ETERNAL
-  { name: "Espresso Shockantoni",      img: "", rarity: "eternal" },
-  { name: "Ketupat Kepat",             img: "", rarity: "eternal" },
-  { name: "Professora 67",             img: "", rarity: "eternal" },
-  { name: "Astro Tim",                 img: "", rarity: "eternal" },
-  { name: "Dumbelloni",                img: "", rarity: "eternal" },
-  { name: "Baba Yaga",                 img: "", rarity: "eternal" },
+  { name: "Espresso Shockantoni",      img: "", sound: "", rarity: "eternal" },
+  { name: "Ketupat Kepat",             img: "", sound: "", rarity: "eternal" },
+  { name: "Professora 67",             img: "", sound: "", rarity: "eternal" },
+  { name: "Astro Tim",                 img: "", sound: "", rarity: "eternal" },
+  { name: "Dumbelloni",                img: "", sound: "", rarity: "eternal" },
+  { name: "Baba Yaga",                 img: "", sound: "", rarity: "eternal" },
 ];
 
 /* ========================
@@ -172,7 +172,26 @@ function playSweep(freqStart, freqEnd, duration, gainVal = 0.15, type = 'sine') 
   } catch(e) {}
 }
 
-function playRaritySound(rarityId) {
+/* ========================
+   SPECIES SOUND PLAYER
+   Kalau species punya sound sendiri → play itu
+   Kalau kosong → fallback ke sound rarity
+   ======================== */
+function playSound(species, rarityId) {
+  if (species.sound) {
+    try {
+      const audio = new Audio(species.sound);
+      audio.volume = 0.7;
+      audio.play().catch(() => playRaritySound(rarityId));
+    } catch(e) {
+      playRaritySound(rarityId);
+    }
+  } else {
+    playRaritySound(rarityId);
+  }
+}
+
+
   switch(rarityId) {
     case 'common':    playSweep(300, 500, 0.3, 0.08); break;
     case 'rare':      playSweep(400, 800, 0.5, 0.12); break;
@@ -424,7 +443,7 @@ function showResult(name) {
       burstParticles(rarity.id);
   }
 
-  playRaritySound(rarity.id);
+  playSound(species, rarity.id);
 
   // Hide scanning, show result
   document.getElementById('scanningSection').classList.add('hidden');
