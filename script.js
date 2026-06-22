@@ -6,117 +6,62 @@
    1. DATA — SPECIES
    ======================== */
 const SPECIES = [
-  // ORIGINAL CLASSICS
-  { name: "Tralalero Bananero",        emoji: "🍌", desc: "The Dancing Banana God" },
-  { name: "Ballerina Galonina",        emoji: "🩰", desc: "The Graceful Chaos Dancer" },
-  { name: "Sigma Galonus",             emoji: "⚡", desc: "The Lone Wolf Overlord" },
-  { name: "Capuccino Destroyer",       emoji: "☕", desc: "The Caffeine Annihilator" },
-  { name: "Tung Tung Sahurinator",     emoji: "🥁", desc: "The Midnight Drummer" },
-  { name: "Mie Goreng Titan",          emoji: "🍜", desc: "The Noodle Behemoth" },
-  { name: "Kucing Galon Supreme",      emoji: "🐱", desc: "The Gallon Cat Deity" },
-  { name: "Bakso Annihilator",         emoji: "🍡", desc: "The Meatball Destroyer" },
-  { name: "Es Teh Overlord",           emoji: "🧊", desc: "The Iced Tea Sovereign" },
-  { name: "Sosis Megalodon",           emoji: "🌭", desc: "The Ancient Sausage Beast" },
-  // MORE ORIGINALS
-  { name: "Indomie Colossus",          emoji: "🍝", desc: "The Instant Noodle Giant" },
-  { name: "Ayam Geprek Berserker",     emoji: "🍗", desc: "The Smashed Chicken Warrior" },
-  { name: "Boba Phantom",             emoji: "🧋", desc: "The Bubble Tea Ghost" },
-  { name: "Rendang Leviathan",         emoji: "🥩", desc: "The Slow-Cook Sea Monster" },
-  { name: "Nasi Padang Oracle",        emoji: "🍛", desc: "The All-Knowing Rice God" },
-  { name: "Kerupuk Ultraman",          emoji: "🦸", desc: "The Cracker Hero" },
-  { name: "Gorengan Phantom",          emoji: "🍟", desc: "The Fried Snack Specter" },
-  { name: "Tempe Titan",               emoji: "🟫", desc: "The Fermented Bean Colossus" },
-  { name: "Pempek Devourer",           emoji: "🐟", desc: "The Fish Cake Eater of Worlds" },
-  { name: "Satay Warlord",             emoji: "🍢", desc: "The Skewer Conqueror" },
-  // INTERNET BRAINROT CROSSOVERS
-  { name: "Rizz Incarnate",            emoji: "😎", desc: "The Charm Embodiment" },
-  { name: "NPC Supreme",               emoji: "🤖", desc: "The Background Character God" },
-  { name: "Skibidi Colossus",          emoji: "🚽", desc: "The Toilet Titan" },
-  { name: "Ohio Final Boss",           emoji: "👁️", desc: "The Most Ohio Thing Ever" },
-  { name: "Griddy Performer",          emoji: "🏈", desc: "The Eternal Touchdown Dancer" },
-  { name: "Boykisser Alpha",           emoji: "🐾", desc: "The Furry Apex Predator" },
-  { name: "Gyatt Commander",           emoji: "💪", desc: "The Legendary Gym Entity" },
-  { name: "Ratio Distributor",         emoji: "📊", desc: "The Twitter Slayer" },
-  { name: "Looksmaxxing Deity",        emoji: "🪞", desc: "The Self-Improvement God" },
-  { name: "Based Sigma Overlord",      emoji: "🦁", desc: "The Undefeated Alpha" },
-  // INDONESIAN VIRAL
-  { name: "Prabowo Gigachad",          emoji: "🦅", desc: "The National Energy Force" },
-  { name: "Pak RT Omnipotent",         emoji: "📋", desc: "The Neighborhood Admin God" },
-  { name: "Warung Madura Eternal",     emoji: "🏪", desc: "The 24-Hour Legend" },
-  { name: "Angkot Driver Supreme",     emoji: "🚌", desc: "The Street Racing Deity" },
-  { name: "Jokowi Bambu",              emoji: "🎋", desc: "The Bamboo Messenger" },
-  { name: "Grab Driver Phantom",       emoji: "🛵", desc: "The Delivery Ghost" },
-  { name: "Ibu-Ibu PKK Titan",         emoji: "👩", desc: "The Gossip Network Node" },
-  { name: "Bapak Kos Omniscient",      emoji: "🔑", desc: "The All-Knowing Landlord" },
-  { name: "Wi-Fi Tetangga Seeker",     emoji: "📶", desc: "The Signal Hunter" },
-  { name: "Anak Jaksel Sigma",         emoji: "🎤", desc: "The Mixed-Language God" },
-  // ABSURD NATURE ENTITIES
-  { name: "Quantum Kuaci",             emoji: "🌻", desc: "The Subatomic Sunflower Seed" },
-  { name: "Dark Matter Cendol",        emoji: "🟢", desc: "The Invisible Green Jelly" },
-  { name: "Hyperdimensional Tahu",     emoji: "🟡", desc: "The Tofu from Beyond" },
-  { name: "Antimatter Pindang",        emoji: "🐠", desc: "The Fish Soup Obliterator" },
-  { name: "Fifth Dimensional Dodol",   emoji: "🍬", desc: "The Sticky Candy Paradox" },
-  { name: "Ultraviolet Kecap",         emoji: "🟫", desc: "The Invisible Soy Sauce" },
-  { name: "Cosmic Wedang Jahe",        emoji: "🌶️", desc: "The Universe Ginger Tea" },
-  { name: "Singularity Opor Ayam",     emoji: "🍲", desc: "The Coconut Curry Void" },
-  { name: "Infinite Ketoprak",         emoji: "🥜", desc: "The Endless Peanut Sauce" },
-  { name: "Recursive Lontong",         emoji: "🟩", desc: "The Self-Referential Rice Cake" },
-  // MYTH & LEGENDS
-  { name: "Naga Galon Immortal",       emoji: "🐉", desc: "The Water Dragon Overlord" },
-  { name: "Jailangkung Sigma",         emoji: "👻", desc: "The Sigma Ghost Entity" },
-  { name: "Wewe Gombel Supreme",       emoji: "👁️", desc: "The Ancient Child Collector" },
-  { name: "Genderuwo Titan",           emoji: "💀", desc: "The Forest Giant Demon" },
-  { name: "Leak Destroyer",            emoji: "🔮", desc: "The Balinese Dark Sorcerer" },
-  { name: "Tuyul Speedrunner",         emoji: "👶", desc: "The Money-Stealing Sprinter" },
-  { name: "Sundel Bolong Phantom",     emoji: "🩸", desc: "The Holed Spirit" },
-  { name: "Pocong Parkour Master",     emoji: "🤸", desc: "The Sheet-Wrapped Athlete" },
-  { name: "Kuntilanak Rizz",           emoji: "💋", desc: "The Charming Banshee" },
-  { name: "Babi Ngepet Mogul",         emoji: "🐷", desc: "The Wealth-Seeking Boar" },
-  // COSMIC TIER
-  { name: "Black Hole Martabak",       emoji: "⚫", desc: "The Pancake That Eats Galaxies" },
-  { name: "Neutron Star Klepon",       emoji: "🌟", desc: "The Dense Pandan Ball" },
-  { name: "Pulsar Getuk",              emoji: "💥", desc: "The Rotating Cassava Emitter" },
-  { name: "Supernova Rawon",           emoji: "✨", desc: "The Black Soup Explosion" },
-  { name: "Event Horizon Gulai",       emoji: "🌀", desc: "The Curry of No Return" },
-  { name: "Nebula Sekoteng",           emoji: "🌌", desc: "The Star-Forming Hot Drink" },
-  { name: "Quasar Coto Makassar",      emoji: "⚡", desc: "The Brightest Soup in Universe" },
-  { name: "Wormhole Cincau",           emoji: "🕳️", desc: "The Grass Jelly Portal" },
-  { name: "Multiverse Siomay",         emoji: "🌐", desc: "The Dumpling Across Realities" },
-  { name: "Parallel Universe Gado-Gado", emoji: "🥗", desc: "The Infinite Peanut Dimension" },
-  // GAMER / ESPORTS TIER
-  { name: "Pro Player Nasi Uduk",      emoji: "🎮", desc: "The Clutch Rice Fighter" },
-  { name: "Noob Destroyer Sambal",     emoji: "🔥", desc: "The Chili Sauce Killer" },
-  { name: "AFK Bubur Ayam",            emoji: "🍚", desc: "The Idle Porridge Entity" },
-  { name: "Headshot Pecel",            emoji: "🎯", desc: "The Accurate Veggie Warrior" },
-  { name: "GG EZ Lupis",               emoji: "🎉", desc: "The Easy Win Rice Cake" },
-  { name: "Ranked Solo Queue Jenang",  emoji: "😤", desc: "The Tryhard Purple Porridge" },
-  { name: "Mid Lane Tape Goreng",      emoji: "🏆", desc: "The Fried Banana Carry" },
-  { name: "Support Main Kue Putu",     emoji: "💚", desc: "The Healer Rice Cake" },
-  { name: "Jungler Basecamp Lapis",    emoji: "🎂", desc: "The Layer Cake Ganker" },
-  { name: "Backdoor Wingko Babat",     emoji: "💨", desc: "The Sneaky Coconut Cake" },
-  // OFFICE LIFE TIER
-  { name: "Deadline Ketoprak Titan",   emoji: "📅", desc: "The Last-Minute Noodle God" },
-  { name: "Meeting Zoom Phantom",      emoji: "💻", desc: "The Background Blur Spirit" },
-  { name: "Excel Guru Martabak",       emoji: "📊", desc: "The Spreadsheet Pancake Master" },
-  { name: "Overtime Kopi Hitam",       emoji: "☕", desc: "The Midnight Coffee Grinder" },
-  { name: "KPI Seblak Overlord",       emoji: "📈", desc: "The Target-Hitting Spicy Soup" },
-  // SCHOOL LIFE TIER
-  { name: "Contekan Teri Nasi",        emoji: "📝", desc: "The Cheat Sheet Anchovy Rice" },
-  { name: "PR Belum Selesai Kupat",    emoji: "😰", desc: "The Unfinished Homework Cake" },
-  { name: "Nilai Sempurna Pukis",      emoji: "💯", desc: "The Perfect Score Cake" },
-  { name: "Bolos Kelas Otak-Otak",     emoji: "🏃", desc: "The Class-Skipping Fish Cake" },
-  { name: "Guru Killer Cilok",         emoji: "😱", desc: "The Scary Teacher Ball" },
-  // ULTIMATE RARE TIER
-  { name: "Omnipotent Nasi Kucing",    emoji: "🐱", desc: "The All-Powerful Cat Rice" },
-  { name: "The Final Sate Padang",     emoji: "🌟", desc: "The Last Satay Standing" },
-  { name: "Alpha Omega Peuyeum",       emoji: "♾️", desc: "The Fermented Cassava of Infinity" },
-  { name: "Ultra Instinct Rujak",      emoji: "⚡", desc: "The Intuitive Fruit Salad" },
-  { name: "Godlike Tahu Gejrot",       emoji: "👑", desc: "The Divine Crumbled Tofu" },
-  { name: "Transcendent Dawet",        emoji: "🌊", desc: "The Beyond-Reality Coconut Drink" },
-  { name: "Absolute Zero Arum Manis",  emoji: "🌪️", desc: "The Cotton Candy of Oblivion" },
-  { name: "Eternal Flame Cabe Rawit",  emoji: "🌶️", desc: "The Undying Chili Fire" },
-  { name: "Infinite Loop Keciput",     emoji: "∞", desc: "The Recursive Fried Dough" },
-  { name: "The One Brainrot",          emoji: "🧠", desc: "The Source of All Brainrot" },
+  // COMMON
+  { name: "Noobini Pizzanini",         emoji: "🍕", desc: "The Beginner Pizza Entity",        rarity: "common" },
+  { name: "Lirili Larila",             emoji: "🎵", desc: "The Singing Forest Creature",       rarity: "common" },
+  { name: "Tim Cheese",                emoji: "🧀", desc: "The Cheesy Team Leader",            rarity: "common" },
+  { name: "Svinina Bombardino",        emoji: "🐷", desc: "The Pork Bomb Dropper",             rarity: "common" },
+  { name: "Pipi Kiwi",                 emoji: "🥝", desc: "The Kiwi Faced Wanderer",           rarity: "common" },
+  { name: "Trippi Troppi",             emoji: "🌴", desc: "The Tropical Tripper",              rarity: "common" },
+  // RARE
+  { name: "Gangster Footera",          emoji: "👟", desc: "The Street Shoe Gangster",          rarity: "rare" },
+  { name: "Boneca Ambalabu",           emoji: "🪆", desc: "The Ancient Doll Entity",           rarity: "rare" },
+  { name: "Ta Ta Ta Ta Sahur",         emoji: "🥁", desc: "The Midnight Drum Awakener",        rarity: "rare" },
+  { name: "Ballerina Cappuccina",      emoji: "🩰", desc: "The Coffee-Fueled Dancer",          rarity: "rare" },
+  { name: "Cappuccino Assassino",      emoji: "☕", desc: "The Espresso Blade Master",         rarity: "rare" },
+  { name: "Brr Brr Patapim",           emoji: "❄️", desc: "The Freezing Sound Bringer",        rarity: "rare" },
+  // EPIC
+  { name: "Garamaramam",               emoji: "🌀", desc: "The Spiral Chaos Entity",           rarity: "epic" },
+  { name: "Waterdino",                 emoji: "🦕", desc: "The Aquatic Dinosaur Overlord",     rarity: "epic" },
+  { name: "Orcalero",                  emoji: "🐋", desc: "The Orca Wave Destroyer",           rarity: "epic" },
+  { name: "Gattatino Nyanino",         emoji: "🐱", desc: "The Singing Cat Supreme",           rarity: "epic" },
+  // LEGENDARY
+  { name: "Chimpanzini Bananini",      emoji: "🦧", desc: "The Banana Chimp Titan",            rarity: "legendary" },
+  { name: "Bambini Crostini",          emoji: "🥖", desc: "The Tiny Bread Warrior",            rarity: "legendary" },
+  { name: "Trulimero Trulicina",       emoji: "🎪", desc: "The Circus of Infinite Power",      rarity: "legendary" },
+  { name: "Bananita Dolphinita",       emoji: "🐬", desc: "The Banana Dolphin Legend",         rarity: "legendary" },
+  // MYTHIC
+  { name: "67",                        emoji: "6️⃣7️⃣", desc: "The Forbidden Number Entity",      rarity: "mythic" },
+  { name: "Chef Crabracadabra",        emoji: "🦀", desc: "The Magical Crab Sorcerer",         rarity: "mythic" },
+  { name: "Elefanto Frigo",            emoji: "🐘", desc: "The Refrigerator Elephant God",     rarity: "mythic" },
+  { name: "Rinoccio Verdini",          emoji: "🦏", desc: "The Green Rhino of Doom",           rarity: "mythic" },
+  { name: "Glorbo Fruttodrilo",        emoji: "🐊", desc: "The Fruit Crocodile Deity",         rarity: "mythic" },
+  // OG
+  { name: "Karkerkar Kurkur",          emoji: "🔮", desc: "The Ancient Sound Manipulator",     rarity: "og" },
+  { name: "Blackhole Goat",            emoji: "🐐", desc: "The Goat That Devours Stars",       rarity: "og" },
+  { name: "Compactoroni Daskaloni",    emoji: "🗜️", desc: "The Compression Master",            rarity: "og" },
+  { name: "Cappuccino Clownino",       emoji: "🤡", desc: "The Espresso Jester Supreme",       rarity: "og" },
+  { name: "Chillin Chilli",            emoji: "🌶️", desc: "The Relaxed Fire Bringer",          rarity: "og" },
+  { name: "Corn Sahur",                emoji: "🌽", desc: "The Pre-Dawn Corn Awakener",        rarity: "og" },
+  { name: "Meowl",                     emoji: "🦉", desc: "The Cat-Owl Hybrid Phantom",        rarity: "og" },
+  { name: "Strawberry Elephant",       emoji: "🍓", desc: "The Berry-Tusked Colossus",         rarity: "og" },
+  // CELESTIAL
+  { name: "Dragonfrutina Dolphinita",  emoji: "🐉", desc: "The Dragon Fruit Dolphin God",      rarity: "celestial" },
+  { name: "Guerriro Digitale",         emoji: "💻", desc: "The Digital Warrior of Light",      rarity: "celestial" },
+  { name: "Chicleteira Bicicleteira",  emoji: "🚲", desc: "The Gum-Powered Cyclist",           rarity: "celestial" },
+  { name: "Pot Hotspot",               emoji: "📡", desc: "The Boiling WiFi Transmitter",      rarity: "celestial" },
+  { name: "Krupuk Pagi Pagi",          emoji: "🌅", desc: "The Dawn Cracker Celestial",        rarity: "celestial" },
+  { name: "Beluga Beluga",             emoji: "🐳", desc: "The Twin Whale of the Cosmos",      rarity: "celestial" },
+  { name: "Tralaledon",                emoji: "🌌", desc: "The Galaxy Song Titan",             rarity: "celestial" },
+  { name: "Anpali Babel",              emoji: "🗼", desc: "The Tower of Infinite Chaos",       rarity: "celestial" },
+  { name: "Los Primos",                emoji: "👥", desc: "The Cousin Duo of the Stars",       rarity: "celestial" },
+  // ETERNAL
+  { name: "Espresso Shockantoni",      emoji: "⚡", desc: "The Lightning Espresso God",        rarity: "eternal" },
+  { name: "Ketupat Kepat",             emoji: "∞", desc: "The Infinite Rice Cake Being",       rarity: "eternal" },
+  { name: "Professora 67",             emoji: "👁️", desc: "The Forbidden Knowledge Keeper",    rarity: "eternal" },
+  { name: "Astro Tim",                 emoji: "🚀", desc: "The Cosmic Cheese Explorer",        rarity: "eternal" },
+  { name: "Dumbelloni",                emoji: "💪", desc: "The Eternal Iron Lifter",           rarity: "eternal" },
+  { name: "Baba Yaga",                 emoji: "🧙", desc: "The Primordial Witch of All",       rarity: "eternal" },
 ];
 
 /* ========================
@@ -437,7 +382,8 @@ function startScan() {
    ======================== */
 function showResult(name) {
   const rarity  = rollRarity();
-  const species = SPECIES[rand(0, SPECIES.length - 1)];
+  const pool    = SPECIES.filter(s => s.rarity === rarity.id);
+  const species = pool.length > 0 ? pool[rand(0, pool.length - 1)] : SPECIES[rand(0, SPECIES.length - 1)];
   const title   = TITLES[rand(0, TITLES.length - 1)];
   const brainrot = rand(55, 100);
   const aura     = rand(30, 100);
