@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brainrot Scanner 🧠</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- PARTICLE CANVAS -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- SCANLINE OVERLAY -->
+  <div class="scanlines"></div>
+
+  <!-- SCREEN FLASH -->
+  <div id="screenFlash"></div>
+
+  <!-- ETERNAL OVERLAY -->
+  <div id="eternalOverlay" class="hidden">
+    <div class="eternal-rays"></div>
+    <div class="eternal-text">✦ ETERNAL ✦</div>
+  </div>
+
+  <!-- MAIN WRAPPER -->
+  <div id="app">
+
+    <!-- HEADER -->
+    <header id="header">
+      <div class="header-deco left">
+        <span class="deco-bar"></span><span class="deco-bar"></span><span class="deco-bar"></span>
+      </div>
+      <div class="header-center">
+        <div class="title-eyebrow">◈ TIKTOK LIVE EDITION ◈</div>
+        <h1 class="main-title">
+          <span class="title-brain">BRAIN</span><span class="title-rot">ROT</span>
+          <span class="title-scanner"> SCANNER</span>
+        </h1>
+        <div class="title-sub">SCAN YOUR BRAINROT SPECIES • DISCOVER YOUR RARITY</div>
+      </div>
+      <div class="header-deco right">
+        <span class="deco-bar"></span><span class="deco-bar"></span><span class="deco-bar"></span>
+      </div>
+    </header>
+
+    <!-- STATS BAR -->
+    <div id="statsBar">
+      <div class="stat-item">
+        <span class="stat-label">TOTAL SCANS</span>
+        <span class="stat-value" id="totalScans">0</span>
+      </div>
+      <div class="stat-divider">◆</div>
+      <div class="stat-item">
+        <span class="stat-label">LEGENDARY+</span>
+        <span class="stat-value golden" id="legendaryCount">0</span>
+      </div>
+      <div class="stat-divider">◆</div>
+      <div class="stat-item">
+        <span class="stat-label">STATUS</span>
+        <span class="stat-value green" id="systemStatus">ONLINE</span>
+      </div>
+    </div>
+
+    <!-- INPUT SECTION -->
+    <section id="inputSection">
+      <div class="input-wrapper">
+        <div class="input-label">◄ MASUKKAN NAMA VIEWER ►</div>
+        <div class="input-row">
+          <div class="input-container">
+            <span class="input-icon">⬡</span>
+            <input
+              type="text"
+              id="nameInput"
+              placeholder="Ketik nama viewer..."
+              autocomplete="off"
+              maxlength="30"
+            />
+            <span class="input-cursor"></span>
+          </div>
+          <button id="scanBtn" onclick="startScan()">
+            <span class="btn-icon">◈</span>
+            <span class="btn-text">SCAN</span>
+          </button>
+        </div>
+        <div class="input-hint">Tekan ENTER atau klik SCAN untuk memulai</div>
+      </div>
+    </section>
+
+    <!-- SCANNING SECTION -->
+    <section id="scanningSection" class="hidden">
+      <div class="scanning-box">
+        <div class="scan-target">
+          <div class="scan-ring ring-1"></div>
+          <div class="scan-ring ring-2"></div>
+          <div class="scan-ring ring-3"></div>
+          <div class="scan-core">⬡</div>
+        </div>
+        <div class="scanning-name" id="scanningName">???</div>
+        <div class="scanning-label">SCANNING...</div>
+        <div class="scan-bar-wrapper">
+          <div class="scan-bar-track">
+            <div class="scan-bar-fill" id="scanBarFill"></div>
+            <div class="scan-bar-glow"></div>
+          </div>
+          <span class="scan-percent" id="scanPercent">0%</span>
+        </div>
+        <div class="scan-status" id="scanStatus">Initializing neural scan...</div>
+        <div class="scan-data">
+          <span id="dataFlicker1">0x3F2A</span> ·
+          <span id="dataFlicker2">ID:????</span> ·
+          <span id="dataFlicker3">SIG:---</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULT SECTION -->
+    <section id="resultSection" class="hidden">
+      <div class="result-card" id="resultCard">
+
+        <!-- RARITY BANNER -->
+        <div class="rarity-banner" id="rarityBanner">
+          <span class="rarity-icon" id="rarityIcon">★</span>
+          <span class="rarity-text" id="rarityText">COMMON</span>
+          <span class="rarity-icon" id="rarityIcon2">★</span>
+        </div>
+
+        <!-- RESULT CONTENT -->
+        <div class="result-body">
+
+          <!-- SPECIES IMAGE -->
+          <div class="species-image-wrap" id="speciesImageWrap">
+            <div class="species-emoji" id="speciesEmoji">🧠</div>
+          </div>
+
+          <!-- RESULT STATS -->
+          <div class="result-stats">
+            <div class="result-name-row">
+              <span class="result-label">VIEWER</span>
+              <span class="result-name" id="resultName">???</span>
+            </div>
+
+            <div class="result-grid">
+              <div class="result-field">
+                <span class="field-label">SPECIES</span>
+                <span class="field-value species-value" id="resultSpecies">???</span>
+              </div>
+              <div class="result-field">
+                <span class="field-label">TITLE</span>
+                <span class="field-value" id="resultTitle">???</span>
+              </div>
+              <div class="result-field">
+                <span class="field-label">BRAINROT LEVEL</span>
+                <div class="bar-row">
+                  <div class="mini-bar-track">
+                    <div class="mini-bar-fill" id="brainrotBar"></div>
+                  </div>
+                  <span class="field-value" id="resultBrainrot">???%</span>
+                </div>
+              </div>
+              <div class="result-field">
+                <span class="field-label">AURA</span>
+                <div class="bar-row">
+                  <div class="mini-bar-track">
+                    <div class="mini-bar-fill aura" id="auraBar"></div>
+                  </div>
+                  <span class="field-value" id="resultAura">???%</span>
+                </div>
+              </div>
+              <div class="result-field power-field">
+                <span class="field-label">POWER</span>
+                <span class="field-value power-value" id="resultPower">???</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCAN AGAIN -->
+        <button class="scan-again-btn" onclick="resetToInput()">
+          ◄ SCAN LAGI ►
+        </button>
+      </div>
+    </section>
+
+    <!-- HISTORY SECTION -->
+    <section id="historySection">
+      <div class="history-header">◆ RIWAYAT 5 SCAN TERAKHIR ◆</div>
+      <div id="historyList" class="history-list">
+        <div class="history-empty">Belum ada scan...</div>
+      </div>
+    </section>
+
+  </div><!-- end #app -->
+
+  <!-- AUDIO ELEMENTS -->
+  <audio id="sndCommon"   preload="auto"></audio>
+  <audio id="sndRare"     preload="auto"></audio>
+  <audio id="sndEpic"     preload="auto"></audio>
+  <audio id="sndLegend"   preload="auto"></audio>
+  <audio id="sndMythic"   preload="auto"></audio>
+  <audio id="sndOG"       preload="auto"></audio>
+  <audio id="sndCelestial" preload="auto"></audio>
+  <audio id="sndEternal"  preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
