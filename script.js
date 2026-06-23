@@ -8,7 +8,7 @@
 const SPECIES = [
   // COMMON
   { name: "Noobini Pizzanini",         img: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/species/Noobini%20Pizzanini.webp?raw=true", sound: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/sounds/Noobini_Pizzanini_Sound.wav?raw=true", rarity: "common" },
-  { name: "Fluriflura",                img: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/species/Fluriflura.webp?raw=true", sound: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/sounds/Fluriflura.mpeg?raw=true", rarity: "common" },
+  { name: "Fluriflura",                img: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/species/Fluriflura.webp?raw=true", sound: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/sounds/Fluriflura.mp3?raw=true", rarity: "common" },
   { name: "Tim Cheese",                img: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/species/Tim%20Cheese.webp?raw=true", sound: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/sounds/Timcheese.mp3?raw=true", rarity: "common" },
   { name: "Svinina Bombardino",        img: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/species/Svinina%20Bombardino.webp?raw=true", sound: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/sounds/Svininabombardino.mp3?raw=true", rarity: "common" },
   { name: "Pipi Kiwi",                 img: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/species/Pipi_Kiwi.webp?raw=true", sound: "https://github.com/ayuazalleaa-hue/brainrot-scanner/blob/main/assets/sounds/Pipikiwi.mp3?raw=true", rarity: "common" },
