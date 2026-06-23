@@ -59,30 +59,62 @@ const SPECIES = [
 ];
 
 /* ========================
-   2. DATA — TITLES
+   2. DATA — TITLES PER SPECIES
    ======================== */
-const TITLES = [
-  "The Last Dancer", "King of Galons", "Destroyer of Cappuccino",
-  "Guardian of Indomie", "The Eternal Sigma", "Master of Brainrot",
-  "The Forgotten Titan", "Lord of Chaos", "The Final Ballerina",
-  "Conqueror of Mie Goreng", "The Chosen Bakso", "Ruler of All Noodles",
-  "The Unseen Force", "Wielder of Sambal", "The Midnight Screamer",
-  "Protector of Es Teh", "The Ancient One", "Bringer of Kerupuk",
-  "The Sigma Oracle", "Avatar of Brainrot", "The Celestial Sate",
-  "Destroyer of Limits", "The Lone Wolf", "Champion of Chaos",
-  "The Eternal NPC", "God of the Grind", "The Rizz Overlord",
-  "Keeper of Ohio", "The Dark Matter Eater", "Lord of the Skibidi",
-  "The Unstoppable", "Myth of the Ages", "The Final Form",
-  "Collector of Aura", "The Power Incarnate", "Herald of Chaos",
-  "The Silent Destroyer", "Alpha and Omega", "The True Sigma",
-  "Beyond All Reason", "The Ascended One", "Master of the Feed",
-  "The Viral Entity", "King of the Comments", "The Legendary Viewer",
-  "The Certified Icon", "No Cap Forever", "Gyatt Supreme Being",
-  "The Based Entity", "The Unmatched One", "Vessel of Pure Chaos",
-  "The Chosen Viewer", "Lord of the TikTok", "The Absolute Unit",
-  "The Gigachad Manifested", "Beyond Human Comprehension", "The Algorithm Breaker",
-  "The Trend Setter", "First of the Name", "The Undiscovered Legend",
-];
+const SPECIES_TITLES = {
+  "Noobini Pizzanini":        ["The Pizza Prophet", "Keeper of the Crust"],
+  "Fluriflura":               ["The Blooming Oracle", "Queen of Petals"],
+  "Tim Cheese":               ["The Cheese Emperor", "Lord of Dairy"],
+  "Svinina Bombardino":       ["The Bombardino General", "Lord of Detonation"],
+  "Pipi Kiwi":                ["The Kiwi Wanderer", "Guardian of the Orchard"],
+  "Trippi Troppi":            ["Master of Trips", "The Endless Wanderer"],
+  "Gangster Footera":         ["The Street King", "Boss of the Alley"],
+  "Boneca Ambalabu":          ["The Cursed Doll", "Mistress of Ambalabu"],
+  "Ta Ta Ta Ta Sahur":        ["Herald of Dawn", "The Eternal Caller"],
+  "Ballerina Cappuccina":     ["The Final Ballerina", "Queen of Cappuccino"],
+  "Cappuccino Assassino":     ["The Silent Barista", "Shadow of Cappuccino"],
+  "Brr Brr Patapim":          ["The Patapim Oracle", "Voice of Patapim"],
+  "Mangolini Parrocini":      ["The Mango Monarch", "Keeper of Parrocini"],
+  "Orcalero":                 ["The Ocean Tyrant", "Lord of Orcalero"],
+  "Gattatino Nyanino":        ["The Nyan Guardian", "Prince of Meows"],
+  "Chimpanzini Bananini":     ["King of Bananini", "The Golden Primate"],
+  "Bambini Crostini":         ["The Chosen Crostini", "Lord of Bambini"],
+  "Trulimero Trulicina":      ["The Trulicina Sage", "Master of Trulimero"],
+  "Bananita Dolphinita":      ["Queen of the Tides", "The Banana Dolphin"],
+  "67":                       ["The Forbidden Number", "The Unknown Variable"],
+  "Chef Crabracadabra":       ["The Arcane Chef", "Master of Crabracadabra"],
+  "Elefanto Frigo":           ["The Frozen Titan", "Keeper of the Fridge"],
+  "Glorbo Fruttodrilo":       ["Lord of Fruttodrilo", "The Fruit Beast"],
+  "Karkerkar Kurkur":         ["The Ancient Kurkur", "Herald of Karkerkar"],
+  "Blackhole Goat":           ["Devourer of Stars", "The Cosmic Goat"],
+  "Cappuccino Clownino":      ["The Laughing Barista", "Jester of Cappuccino"],
+  "Chillin Chilli":           ["The Spicy Sage", "Lord of Chill"],
+  "Corn Sahur":               ["The Golden Caller", "Herald of Corn"],
+  "Meowl":                    ["The Feline Entity", "The Eternal Meow"],
+  "Strawberry Elephant":      ["The Berry Titan", "Guardian of Strawberries"],
+  "Guerriro Digitale":        ["The Digital Warrior", "Defender of Data"],
+  "Chicleteira Bicicleteira": ["Queen of Wheels", "The Bubblegum Rider"],
+  "Pot Hotspot":              ["Keeper of Connection", "Lord of the Signal"],
+  "Krupuk Pagi Pagi":         ["The Crunch King", "Herald of Morning"],
+  "Beluga Beluga":            ["The Deep Sea Oracle", "Voice of Beluga"],
+  "Tralaledon":               ["The Tralala Emperor", "Lord of Tralaledon"],
+  "Anpali Babel":             ["The Tower Keeper", "Sage of Babel"],
+  "Los Primos":               ["The First Primo", "King of the Primos"],
+  "Ketupat Kepat":            ["Guardian of Ketupat", "The Sacred Wrapper"],
+  "Dul Dul Dul":              ["The Eternal Rhythm", "Master of Dul"],
+  "Los Matteos":              ["Emperor Matteo", "The Last Matteo"],
+  "Pumpkini Spyderini":       ["The Pumpkin Weaver", "Lord of Webs"],
+};
+
+const FALLBACK_TITLE = "The Unknown Entity";
+
+function getTitleForSpecies(speciesName) {
+  const pool = SPECIES_TITLES[speciesName];
+  if (pool && pool.length > 0) {
+    return pool[rand(0, pool.length - 1)];
+  }
+  return FALLBACK_TITLE;
+}
 
 /* ========================
    3. DATA — RARITY SYSTEM
@@ -122,7 +154,6 @@ let totalScans    = 0;
 let legendaryPlus = 0;
 let history       = [];
 
-// Cache hasil scan per nama (session-based, reset kalau refresh)
 const scanCache = new Map();
 
 /* ========================
@@ -405,7 +436,7 @@ function showResult(name) {
     rarity   = rollRarity();
     const pool = SPECIES.filter(s => s.rarity === rarity.id);
     species  = pool.length > 0 ? pool[rand(0, pool.length - 1)] : SPECIES[rand(0, SPECIES.length - 1)];
-    title    = TITLES[rand(0, TITLES.length - 1)];
+    title    = getTitleForSpecies(species.name);
     brainrot = rand(55, 100);
     aura     = rand(30, 100);
     power    = rand(1, 9999);
@@ -462,12 +493,12 @@ function showResult(name) {
     imgWrap.innerHTML = `<div class="species-emoji">🧠</div>`;
   }
 
-  document.getElementById('resultName').textContent    = name;
-  document.getElementById('resultSpecies').textContent = species.name;
-  document.getElementById('resultTitle').textContent   = title;
+  document.getElementById('resultName').textContent     = name;
+  document.getElementById('resultSpecies').textContent  = species.name;
+  document.getElementById('resultTitle').textContent    = title;
   document.getElementById('resultBrainrot').textContent = brainrot + '%';
-  document.getElementById('resultAura').textContent    = aura + '%';
-  document.getElementById('resultPower').textContent   = power.toLocaleString();
+  document.getElementById('resultAura').textContent     = aura + '%';
+  document.getElementById('resultPower').textContent    = power.toLocaleString();
 
   const card = document.getElementById('resultCard');
   card.style.borderColor = rarity.color;
@@ -567,13 +598,11 @@ document.getElementById('nameInput').addEventListener('keydown', e => {
 window.addEventListener('load', () => {
   document.getElementById('nameInput').focus();
   renderHistory();
-  // Preload semua gambar species biar ga delay
   SPECIES.forEach(s => {
     if (s.img) {
       const img = new Image();
       img.src = s.img;
     }
-    // Preload semua sound species biar ga delay
     if (s.sound) {
       const audio = new Audio();
       audio.preload = 'auto';
