@@ -88,14 +88,14 @@ const TITLES = [
    3. DATA — RARITY SYSTEM
    ======================== */
 const RARITIES = [
-  { id: "common",    label: "COMMON",    weight: 50.00, icon: "◆",   color: "#888899" },
-  { id: "rare",      label: "RARE",      weight: 25.00, icon: "◈",   color: "#3399ff" },
-  { id: "epic",      label: "EPIC",      weight: 12.00, icon: "✦",   color: "#aa44ff" },
-  { id: "legendary", label: "LEGENDARY", weight:  7.00, icon: "★",   color: "#ffcc00" },
-  { id: "mythic",    label: "MYTHIC",    weight:  4.00, icon: "⚡",   color: "#ff2244" },
-  { id: "og",        label: "OG",        weight:  1.50, icon: "◉",   color: "#00ff88" },
-  { id: "celestial", label: "CELESTIAL", weight:  0.40, icon: "✧",   color: "#aaddff" },
-  { id: "eternal",   label: "ETERNAL",   weight:  0.10, icon: "∞",   color: "#ff0080" },
+  { id: "common",    label: "COMMON",    weight: 35.0, icon: "◆",   color: "#888899" },
+  { id: "rare",      label: "RARE",      weight: 25.0, icon: "◈",   color: "#3399ff" },
+  { id: "epic",      label: "EPIC",      weight: 15.0, icon: "✦",   color: "#aa44ff" },
+  { id: "legendary", label: "LEGENDARY", weight: 10.0, icon: "★",   color: "#ffcc00" },
+  { id: "mythic",    label: "MYTHIC",    weight:  6.0, icon: "⚡",   color: "#ff2244" },
+  { id: "og",        label: "OG",        weight:  5.0, icon: "◉",   color: "#00ff88" },
+  { id: "celestial", label: "CELESTIAL", weight:  2.5, icon: "✧",   color: "#aaddff" },
+  { id: "eternal",   label: "ETERNAL",   weight:  1.5, icon: "∞",   color: "#ff0080" },
 ];
 
 /* ========================
@@ -121,6 +121,9 @@ const SCAN_MESSAGES = [
 let totalScans    = 0;
 let legendaryPlus = 0;
 let history       = [];
+
+// Cache hasil scan per nama (session-based, reset kalau refresh)
+const scanCache = new Map();
 
 /* ========================
    6. RARITY SELECTOR
@@ -165,8 +168,6 @@ function playSweep(freqStart, freqEnd, duration, gainVal = 0.15, type = 'sine') 
   } catch(e) {}
 }
 
-/* Kalau species punya sound sendiri → play itu
-   Kalau kosong → fallback ke sound rarity */
 function playSound(species, rarityId) {
   if (species.sound) {
     try {
@@ -393,13 +394,23 @@ function startScan() {
    11. SHOW RESULT
    ======================== */
 function showResult(name) {
-  const rarity   = rollRarity();
-  const pool     = SPECIES.filter(s => s.rarity === rarity.id);
-  const species  = pool.length > 0 ? pool[rand(0, pool.length - 1)] : SPECIES[rand(0, SPECIES.length - 1)];
-  const title    = TITLES[rand(0, TITLES.length - 1)];
-  const brainrot = rand(55, 100);
-  const aura     = rand(30, 100);
-  const power    = rand(1, 9999);
+  const nameKey = name.trim().toLowerCase();
+  let cached = scanCache.get(nameKey);
+
+  let rarity, species, title, brainrot, aura, power;
+
+  if (cached) {
+    ({ rarity, species, title, brainrot, aura, power } = cached);
+  } else {
+    rarity   = rollRarity();
+    const pool = SPECIES.filter(s => s.rarity === rarity.id);
+    species  = pool.length > 0 ? pool[rand(0, pool.length - 1)] : SPECIES[rand(0, SPECIES.length - 1)];
+    title    = TITLES[rand(0, TITLES.length - 1)];
+    brainrot = rand(55, 100);
+    aura     = rand(30, 100);
+    power    = rand(1, 9999);
+    scanCache.set(nameKey, { rarity, species, title, brainrot, aura, power });
+  }
 
   totalScans++;
   document.getElementById('totalScans').textContent = totalScans;
