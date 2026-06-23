@@ -7,7 +7,7 @@
    ======================== */
 const SPECIES = [
   // COMMON
-  { name: "Noobini Pizzanini",         img: "https://ibb.co.com/m5RXbmX6", sound: "https://static.wikia.nocookie.net/stealabr/images/a/a7/Noobini_Pizzanini_Sound.wav/revision/latest?cb=20251004162942", rarity: "common" },
+  { name: "Noobini Pizzanini",         img: "", sound: "", rarity: "common" },
   { name: "Lirili Larila",             img: "", sound: "", rarity: "common" },
   { name: "Tim Cheese",                img: "", sound: "", rarity: "common" },
   { name: "Svinina Bombardino",        img: "", sound: "", rarity: "common" },
@@ -138,7 +138,7 @@ function rollRarity() {
     cumulative += r.weight;
     if (roll < cumulative) return r;
   }
-  return RARITIES[0]; // fallback
+  return RARITIES[0];
 }
 
 function rand(min, max) {
@@ -147,7 +147,6 @@ function rand(min, max) {
 
 /* ========================
    7. SOUND ENGINE
-   Using Web Audio API for synthetic tones — no files needed!
    ======================== */
 let audioCtx = null;
 function getAudioCtx() {
@@ -172,11 +171,8 @@ function playSweep(freqStart, freqEnd, duration, gainVal = 0.15, type = 'sine') 
   } catch(e) {}
 }
 
-/* ========================
-   SPECIES SOUND PLAYER
-   Kalau species punya sound sendiri → play itu
-   Kalau kosong → fallback ke sound rarity
-   ======================== */
+/* Kalau species punya sound sendiri → play itu
+   Kalau kosong → fallback ke sound rarity */
 function playSound(species, rarityId) {
   if (species.sound) {
     try {
@@ -191,11 +187,17 @@ function playSound(species, rarityId) {
   }
 }
 
-
+function playRaritySound(rarityId) {
   switch(rarityId) {
-    case 'common':    playSweep(300, 500, 0.3, 0.08); break;
-    case 'rare':      playSweep(400, 800, 0.5, 0.12); break;
-    case 'epic':      playSweep(200, 900, 0.7, 0.15, 'sawtooth'); break;
+    case 'common':
+      playSweep(300, 500, 0.3, 0.08);
+      break;
+    case 'rare':
+      playSweep(400, 800, 0.5, 0.12);
+      break;
+    case 'epic':
+      playSweep(200, 900, 0.7, 0.15, 'sawtooth');
+      break;
     case 'legendary':
       playSweep(300, 1200, 0.6, 0.18);
       setTimeout(() => playSweep(600, 1800, 0.4, 0.12), 300);
@@ -358,7 +360,6 @@ function startScan() {
     return;
   }
 
-  // Transition to scanning
   document.getElementById('inputSection').classList.add('hidden');
   document.getElementById('resultSection').classList.add('hidden');
   document.getElementById('scanningSection').classList.remove('hidden');
@@ -368,7 +369,6 @@ function startScan() {
   document.getElementById('scanPercent').textContent  = '0%';
   document.getElementById('scanStatus').textContent   = SCAN_MESSAGES[0];
 
-  // Animate progress bar
   let progress = 0;
   let msgIdx   = 0;
   const totalMs = 2200;
@@ -377,7 +377,6 @@ function startScan() {
   const statusInterval = setInterval(() => {
     msgIdx = (msgIdx + 1) % SCAN_MESSAGES.length;
     document.getElementById('scanStatus').textContent = SCAN_MESSAGES[msgIdx];
-    // Flicker data
     document.getElementById('dataFlicker1').textContent = '0x' + Math.floor(Math.random()*0xFFFF).toString(16).toUpperCase().padStart(4,'0');
     document.getElementById('dataFlicker2').textContent = 'ID:' + Math.floor(Math.random()*9999).toString().padStart(4,'0');
     document.getElementById('dataFlicker3').textContent = 'SIG:' + Math.floor(Math.random()*999).toString().padStart(3,'0');
@@ -400,15 +399,14 @@ function startScan() {
    11. SHOW RESULT
    ======================== */
 function showResult(name) {
-  const rarity  = rollRarity();
-  const pool    = SPECIES.filter(s => s.rarity === rarity.id);
-  const species = pool.length > 0 ? pool[rand(0, pool.length - 1)] : SPECIES[rand(0, SPECIES.length - 1)];
-  const title   = TITLES[rand(0, TITLES.length - 1)];
+  const rarity   = rollRarity();
+  const pool     = SPECIES.filter(s => s.rarity === rarity.id);
+  const species  = pool.length > 0 ? pool[rand(0, pool.length - 1)] : SPECIES[rand(0, SPECIES.length - 1)];
+  const title    = TITLES[rand(0, TITLES.length - 1)];
   const brainrot = rand(55, 100);
   const aura     = rand(30, 100);
   const power    = rand(1, 9999);
 
-  // Update stats
   totalScans++;
   document.getElementById('totalScans').textContent = totalScans;
   if (['legendary','mythic','og','celestial','eternal'].includes(rarity.id)) {
@@ -416,7 +414,6 @@ function showResult(name) {
     document.getElementById('legendaryCount').textContent = legendaryPlus;
   }
 
-  // Special effects for high rarity
   switch(rarity.id) {
     case 'eternal':
       flashScreen();
@@ -445,15 +442,13 @@ function showResult(name) {
 
   playSound(species, rarity.id);
 
-  // Hide scanning, show result
   document.getElementById('scanningSection').classList.add('hidden');
   document.getElementById('resultSection').classList.remove('hidden');
 
-  // Fill result card
   applyRarityClass(document.getElementById('rarityBanner'), rarity.id);
-  document.getElementById('rarityText').textContent  = rarity.label;
-  document.getElementById('rarityIcon').textContent  = rarity.icon;
-  document.getElementById('rarityIcon2').textContent = rarity.icon;
+  document.getElementById('rarityText').textContent   = rarity.label;
+  document.getElementById('rarityIcon').textContent   = rarity.icon;
+  document.getElementById('rarityIcon2').textContent  = rarity.icon;
 
   const imgWrap = document.getElementById('speciesEmoji');
   if (species.img) {
@@ -461,25 +456,23 @@ function showResult(name) {
   } else {
     imgWrap.innerHTML = `<span style="font-size:80px;">🧠</span>`;
   }
-  document.getElementById('resultName').textContent   = name;
-  document.getElementById('resultSpecies').textContent = species.name;
-  document.getElementById('resultTitle').textContent  = title;
-  document.getElementById('resultBrainrot').textContent = brainrot + '%';
-  document.getElementById('resultAura').textContent   = aura + '%';
-  document.getElementById('resultPower').textContent  = power.toLocaleString();
 
-  // Apply rarity glow to result card
+  document.getElementById('resultName').textContent    = name;
+  document.getElementById('resultSpecies').textContent = species.name;
+  document.getElementById('resultTitle').textContent   = title;
+  document.getElementById('resultBrainrot').textContent = brainrot + '%';
+  document.getElementById('resultAura').textContent    = aura + '%';
+  document.getElementById('resultPower').textContent   = power.toLocaleString();
+
   const card = document.getElementById('resultCard');
   card.style.borderColor = rarity.color;
   card.style.boxShadow   = `0 0 40px ${rarity.color}55, 0 0 80px ${rarity.color}22`;
 
-  // Animate bars after brief delay
   setTimeout(() => {
     document.getElementById('brainrotBar').style.width = brainrot + '%';
     document.getElementById('auraBar').style.width     = aura + '%';
   }, 300);
 
-  // Add to history
   addHistory(name, rarity, species);
 }
 
@@ -497,7 +490,7 @@ function applyRarityClass(el, rarityId) {
 function flashScreen() {
   const flash = document.getElementById('screenFlash');
   flash.classList.remove('flash');
-  void flash.offsetWidth; // reflow
+  void flash.offsetWidth;
   flash.classList.add('flash');
 }
 
@@ -531,7 +524,7 @@ function renderHistory() {
       <span class="history-dot dot-${item.rarity.id}"></span>
       <span class="history-name">${escapeHtml(item.name)}</span>
       <span class="history-rarity">[${item.rarity.label}]</span>
-      <span class="history-rarity">${item.species.emoji}</span>
+      <span class="history-species">${escapeHtml(item.species.name)}</span>
     `;
     list.appendChild(el);
   });
@@ -548,11 +541,9 @@ function resetToInput() {
   document.getElementById('resultSection').classList.add('hidden');
   document.getElementById('inputSection').classList.remove('hidden');
 
-  // Reset result card bars
   document.getElementById('brainrotBar').style.width = '0%';
   document.getElementById('auraBar').style.width     = '0%';
 
-  // Clear input & focus
   const input = document.getElementById('nameInput');
   input.value = '';
   setTimeout(() => input.focus(), 100);
