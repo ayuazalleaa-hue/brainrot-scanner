@@ -8,7 +8,7 @@
 const SPECIES = [
   // COMMON
   { name: "Noobini Pizzanini",         img: "", sound: "", rarity: "common" },
-  { name: "Lirili Larila",             img: "", sound: "", rarity: "common" },
+  { name: "Fluriflura",                img: "", sound: "", rarity: "common" },
   { name: "Tim Cheese",                img: "", sound: "", rarity: "common" },
   { name: "Svinina Bombardino",        img: "", sound: "", rarity: "common" },
   { name: "Pipi Kiwi",                 img: "", sound: "", rarity: "common" },
@@ -21,8 +21,7 @@ const SPECIES = [
   { name: "Cappuccino Assassino",      img: "", sound: "", rarity: "rare" },
   { name: "Brr Brr Patapim",           img: "", sound: "", rarity: "rare" },
   // EPIC
-  { name: "Garamaramam",               img: "", sound: "", rarity: "epic" },
-  { name: "Waterdino",                 img: "", sound: "", rarity: "epic" },
+  { name: "Mangolini Parrocini",       img: "", sound: "", rarity: "epic" },
   { name: "Orcalero",                  img: "", sound: "", rarity: "epic" },
   { name: "Gattatino Nyanino",         img: "", sound: "", rarity: "epic" },
   // LEGENDARY
@@ -34,19 +33,16 @@ const SPECIES = [
   { name: "67",                        img: "", sound: "", rarity: "mythic" },
   { name: "Chef Crabracadabra",        img: "", sound: "", rarity: "mythic" },
   { name: "Elefanto Frigo",            img: "", sound: "", rarity: "mythic" },
-  { name: "Rinoccio Verdini",          img: "", sound: "", rarity: "mythic" },
   { name: "Glorbo Fruttodrilo",        img: "", sound: "", rarity: "mythic" },
   // OG
   { name: "Karkerkar Kurkur",          img: "", sound: "", rarity: "og" },
   { name: "Blackhole Goat",            img: "", sound: "", rarity: "og" },
-  { name: "Compactoroni Daskaloni",    img: "", sound: "", rarity: "og" },
   { name: "Cappuccino Clownino",       img: "", sound: "", rarity: "og" },
   { name: "Chillin Chilli",            img: "", sound: "", rarity: "og" },
   { name: "Corn Sahur",                img: "", sound: "", rarity: "og" },
   { name: "Meowl",                     img: "", sound: "", rarity: "og" },
   { name: "Strawberry Elephant",       img: "", sound: "", rarity: "og" },
   // CELESTIAL
-  { name: "Dragonfrutina Dolphinita",  img: "", sound: "", rarity: "celestial" },
   { name: "Guerriro Digitale",         img: "", sound: "", rarity: "celestial" },
   { name: "Chicleteira Bicicleteira",  img: "", sound: "", rarity: "celestial" },
   { name: "Pot Hotspot",               img: "", sound: "", rarity: "celestial" },
@@ -56,12 +52,10 @@ const SPECIES = [
   { name: "Anpali Babel",              img: "", sound: "", rarity: "celestial" },
   { name: "Los Primos",                img: "", sound: "", rarity: "celestial" },
   // ETERNAL
-  { name: "Espresso Shockantoni",      img: "", sound: "", rarity: "eternal" },
   { name: "Ketupat Kepat",             img: "", sound: "", rarity: "eternal" },
-  { name: "Professora 67",             img: "", sound: "", rarity: "eternal" },
-  { name: "Astro Tim",                 img: "", sound: "", rarity: "eternal" },
-  { name: "Dumbelloni",                img: "", sound: "", rarity: "eternal" },
-  { name: "Baba Yaga",                 img: "", sound: "", rarity: "eternal" },
+  { name: "Dul Dul Dul",               img: "", sound: "", rarity: "eternal" },
+  { name: "Los Matteos",               img: "", sound: "", rarity: "eternal" },
+  { name: "Pumpkini Spyderini",        img: "", sound: "", rarity: "eternal" },
 ];
 
 /* ========================
