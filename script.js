@@ -556,4 +556,11 @@ document.getElementById('nameInput').addEventListener('keydown', e => {
 window.addEventListener('load', () => {
   document.getElementById('nameInput').focus();
   renderHistory();
+  // Preload semua gambar species biar ga delay
+  SPECIES.forEach(s => {
+    if (s.img) {
+      const img = new Image();
+      img.src = s.img;
+    }
+  });
 });
