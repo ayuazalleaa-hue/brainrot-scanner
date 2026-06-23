@@ -444,11 +444,11 @@ function showResult(name) {
   document.getElementById('rarityIcon').textContent   = rarity.icon;
   document.getElementById('rarityIcon2').textContent  = rarity.icon;
 
-  const imgWrap = document.getElementById('speciesEmoji');
+  const imgWrap = document.getElementById('speciesImageWrap');
   if (species.img) {
-    imgWrap.innerHTML = `<img src="${species.img}" alt="${species.name}" style="width:120px;height:120px;object-fit:contain;border-radius:12px;">`;
+    imgWrap.innerHTML = `<img src="${species.img}" alt="${species.name}" class="species-img">`;
   } else {
-    imgWrap.innerHTML = `<span style="font-size:80px;">🧠</span>`;
+    imgWrap.innerHTML = `<div class="species-emoji">🧠</div>`;
   }
 
   document.getElementById('resultName').textContent    = name;
