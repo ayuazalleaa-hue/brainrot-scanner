@@ -365,7 +365,7 @@ function startScan() {
 
   let progress = 0;
   let msgIdx   = 0;
-  const totalMs = 2200;
+  const totalMs = 1100;
   const startTime = Date.now();
 
   const statusInterval = setInterval(() => {
