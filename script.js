@@ -593,7 +593,14 @@ document.getElementById('nameInput').addEventListener('keydown', e => {
 });
 
 /* ========================
-   17. INIT
+   17. AD TRIGGER (PPC)
+   ======================== */
+function openAd() {
+  window.open("https://omg10.com/4/10817992", "_blank");
+}
+
+/* ========================
+   18. INIT
    ======================== */
 window.addEventListener('load', () => {
   document.getElementById('nameInput').focus();
